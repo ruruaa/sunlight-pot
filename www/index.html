@@ -8,60 +8,51 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main class="app">
-    <header class="top">
-      <h1>🌱 햇빛 화분</h1>
-      <p class="sub">개발 1단계 · 퍼즐 생성기 확인</p>
+  <main class="app play">
+    <header class="play-top">
+      <!-- 임시 스테이지 선택 (3번 작업에서 스테이지 지도 화면으로 바뀐다) -->
+      <div class="stage-pick">
+        <select id="chapter" aria-label="챕터"></select>
+        <select id="stage" aria-label="스테이지"></select>
+      </div>
+      <div id="timer" class="timer" aria-label="걸린 시간">0:00</div>
     </header>
 
-    <section class="panel controls">
-      <div class="tabs" role="tablist">
-        <button class="tab is-on" data-mode="stage" type="button">스테이지</button>
-        <button class="tab" data-mode="daily" type="button">데일리</button>
-      </div>
-      <div class="row" data-show="stage">
-        <label>챕터
-          <select id="chapter"></select>
-        </label>
-        <label>스테이지
-          <select id="stage"></select>
-        </label>
-      </div>
-      <div class="row" data-show="daily" hidden>
-        <label>날짜
-          <input id="date" type="date">
-        </label>
-      </div>
-      <div class="row">
-        <button id="prev" class="btn" type="button">◀ 이전</button>
-        <button id="next" class="btn" type="button">다음 ▶</button>
-        <button id="toggle-answer" class="btn btn-accent" type="button" aria-pressed="false">정답 보기</button>
-      </div>
-    </section>
+    <p class="rule-line">가로줄·세로줄·화단마다 화분 <b>1개</b>씩, 서로 붙지 않게</p>
 
     <section class="board-wrap">
-      <div id="board" class="board" aria-label="퍼즐 판"></div>
+      <div id="board" class="board play-board" role="grid" aria-label="정원"></div>
     </section>
 
-    <section class="panel">
-      <dl id="info" class="info"></dl>
-    </section>
+    <div class="toolbar">
+      <button id="undo" class="btn" type="button">↶ 되돌리기</button>
+      <button id="reset" class="btn" type="button">처음부터</button>
+      <label class="switch">
+        <input id="auto-mark" type="checkbox">
+        <span class="switch-track" aria-hidden="true"></span>
+        <span>자동 X</span>
+      </label>
+    </div>
 
-    <section class="panel">
-      <button id="check-all" class="btn btn-wide" type="button">전체 검사 (스테이지 120개 + 데일리 30일)</button>
-      <p id="check-result" class="check-result"></p>
-    </section>
-
-    <section class="panel legend">
-      <p><span class="mini-sign">1</span> 팻말: 주변 8칸에 있는 정답 화분 수</p>
-      <p><span class="mini-pot">🪴</span> 정답 화분 (정답 보기를 누르면 보임)</p>
-      <p>이 화면은 생성기 확인용이고, 2단계에서 실제 플레이 화면으로 바뀝니다.</p>
-    </section>
+    <p class="help">한 번 탭 <b>X</b> · 두 번 <b>화분</b> · 세 번 <b>지우기</b></p>
+    <p class="dev-link"><a href="dev.html">생성기 확인 화면 (개발용)</a></p>
   </main>
+
+  <div id="clear" class="clear-backdrop" hidden>
+    <div class="clear-card" role="dialog" aria-modal="true" aria-labelledby="clear-title">
+      <p class="clear-emoji" aria-hidden="true">🌼</p>
+      <h2 id="clear-title">정원이 활짝 피었어요!</h2>
+      <p id="clear-detail" class="clear-detail"></p>
+      <div class="clear-actions">
+        <button id="clear-close" class="btn" type="button">판 보기</button>
+        <button id="clear-next" class="btn btn-go" type="button">다음 스테이지 ▶</button>
+      </div>
+    </div>
+  </div>
 
   <!-- 하단 광고 배너 자리 (기획서 10번). 앱에서 AdMob 배너가 이 높이를 차지한다. -->
   <div id="ad-banner-slot" class="ad-slot" aria-hidden="true"></div>
 
-  <script type="module" src="js/preview.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 </html>

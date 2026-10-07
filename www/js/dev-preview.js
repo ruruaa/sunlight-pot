@@ -1,5 +1,5 @@
 // 1단계 확인용 화면: 생성된 퍼즐을 보여주고 정답이 하나인지 검사한다.
-// 2단계에서 실제 플레이 화면으로 바뀐다.
+// 개발용 화면 (dev.html).
 
 import { solve, isValidSolution } from './core/solver.js';
 import { generatePuzzle } from './core/generator.js';
