@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3ead8">
+  <title>햇빛 화분</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <h1>🌱 햇빛 화분</h1>
+      <p class="sub">개발 1단계 · 퍼즐 생성기 확인</p>
+    </header>
+
+    <section class="panel controls">
+      <div class="tabs" role="tablist">
+        <button class="tab is-on" data-mode="stage" type="button">스테이지</button>
+        <button class="tab" data-mode="daily" type="button">데일리</button>
+      </div>
+      <div class="row" data-show="stage">
+        <label>챕터
+          <select id="chapter"></select>
+        </label>
+        <label>스테이지
+          <select id="stage"></select>
+        </label>
+      </div>
+      <div class="row" data-show="daily" hidden>
+        <label>날짜
+          <input id="date" type="date">
+        </label>
+      </div>
+      <div class="row">
+        <button id="prev" class="btn" type="button">◀ 이전</button>
+        <button id="next" class="btn" type="button">다음 ▶</button>
+        <button id="toggle-answer" class="btn btn-accent" type="button" aria-pressed="false">정답 보기</button>
+      </div>
+    </section>
+
+    <section class="board-wrap">
+      <div id="board" class="board" aria-label="퍼즐 판"></div>
+    </section>
+
+    <section class="panel">
+      <dl id="info" class="info"></dl>
+    </section>
+
+    <section class="panel">
+      <button id="check-all" class="btn btn-wide" type="button">전체 검사 (스테이지 120개 + 데일리 30일)</button>
+      <p id="check-result" class="check-result"></p>
+    </section>
+
+    <section class="panel legend">
+      <p><span class="mini-sign">1</span> 팻말: 주변 8칸에 있는 정답 화분 수</p>
+      <p><span class="mini-pot">🪴</span> 정답 화분 (정답 보기를 누르면 보임)</p>
+      <p>이 화면은 생성기 확인용이고, 2단계에서 실제 플레이 화면으로 바뀝니다.</p>
+    </section>
+  </main>
+
+  <!-- 하단 광고 배너 자리 (기획서 10번). 앱에서 AdMob 배너가 이 높이를 차지한다. -->
+  <div id="ad-banner-slot" class="ad-slot" aria-hidden="true"></div>
+
+  <script type="module" src="js/preview.js"></script>
+</body>
+</html>
