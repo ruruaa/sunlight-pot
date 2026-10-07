@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f3ead8">
+  <title>햇빛 화분</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="app play">
+    <header class="play-top">
+      <!-- 임시 스테이지 선택 (3번 작업에서 스테이지 지도 화면으로 바뀐다) -->
+      <div class="stage-pick">
+        <select id="chapter" aria-label="챕터"></select>
+        <select id="stage" aria-label="스테이지"></select>
+      </div>
+      <div id="timer" class="timer" aria-label="걸린 시간">0:00</div>
+    </header>
+
+    <p class="rule-line">가로줄·세로줄·화단마다 화분 <b>1개</b>씩, 서로 붙지 않게</p>
+
+    <section class="board-wrap">
+      <div id="board" class="board play-board" role="grid" aria-label="정원"></div>
+    </section>
+
+    <div class="toolbar">
+      <button id="undo" class="btn" type="button">↶ 되돌리기</button>
+      <button id="reset" class="btn" type="button">처음부터</button>
+      <label class="switch">
+        <input id="auto-mark" type="checkbox">
+        <span class="switch-track" aria-hidden="true"></span>
+        <span>자동 X</span>
+      </label>
+    </div>
+
+    <p class="help">한 번 탭 <b>X</b> · 두 번 <b>화분</b> · 세 번 <b>지우기</b></p>
+    <p class="dev-link"><a href="dev.html">생성기 확인 화면 (개발용)</a></p>
+  </main>
+
+  <div id="clear" class="clear-backdrop" hidden>
+    <div class="clear-card" role="dialog" aria-modal="true" aria-labelledby="clear-title">
+      <p class="clear-emoji" aria-hidden="true">🌼</p>
+      <h2 id="clear-title">정원이 활짝 피었어요!</h2>
+      <p id="clear-detail" class="clear-detail"></p>
+      <div class="clear-actions">
+        <button id="clear-close" class="btn" type="button">판 보기</button>
+        <button id="clear-next" class="btn btn-go" type="button">다음 스테이지 ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 하단 광고 배너 자리 (기획서 10번). 앱에서 AdMob 배너가 이 높이를 차지한다. -->
+  <div id="ad-banner-slot" class="ad-slot" aria-hidden="true"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

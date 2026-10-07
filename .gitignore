@@ -1,0 +1,4 @@
+node_modules/
+.DS_Store
+# Capacitor (3단계에서 생성)
+android/app/build/
